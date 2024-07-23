@@ -207,6 +207,7 @@ class HomeFragment : Fragment(), BluetoothController.Listener {
         }
         binding.ibKitchenDevice.setOnClickListener {
             bluetoothController.sendMessage("ks-?^")
+            showDialogSwitchKitchen(false, false)
         }
         binding.ibBathDevice.setOnClickListener {
             bluetoothController.sendMessage("bs-?^")
@@ -220,9 +221,11 @@ class HomeFragment : Fragment(), BluetoothController.Listener {
         binding.ibRoomFun.setOnClickListener {
             bluetoothController.sendMessage("rf-?^")
             Log.d("MyLog", "777")
+            showDialogFunRoom(false)
         }
         binding.ibKitchenFun.setOnClickListener {
             bluetoothController.sendMessage("kf-?^")
+            showDialogFunKitchen(false)
         }
         binding.ibBathFun.setOnClickListener {
             bluetoothController.sendMessage("bf-?^")
