@@ -1,0 +1,797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/white_gray"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/tvHomeTitle2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Список комнат"
+        android:textColor="@color/white_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
+        app:layout_constraintStart_toStartOf="@+id/bConnectHome"
+        app:layout_constraintTop_toBottomOf="@+id/cvAverageParam" />
+
+    <Button
+        android:id="@+id/bConnectHome"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:height="50dp"
+        android:backgroundTint="@color/white_green"
+        android:text="@string/home_b_connect"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvHomeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/home_title"
+        android:textColor="@color/white_blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/bConnectHome"
+        app:layout_constraintTop_toBottomOf="@+id/bConnectHome" />
+
+    <Switch
+        android:id="@+id/lock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:checked="false"
+        android:text="Блокировка включена..."
+        app:layout_constraintBottom_toTopOf="@+id/switch3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAverageParam"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/white_blue"
+        android:visibility="visible"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
+        app:layout_constraintStart_toStartOf="@+id/bConnectHome"
+        app:layout_constraintTop_toBottomOf="@+id/tvHomeTitle">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/param_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:text="Средние показатели в доме на данный момент"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivAverageStatusTemp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_check"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHomeTempTitle"
+                app:layout_constraintStart_toStartOf="@+id/param_title"
+                app:layout_constraintTop_toTopOf="@+id/tvHomeTempTitle" />
+
+            <TextView
+                android:id="@+id/tvHomeTempTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/temp_title"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/ivAverageStatusTemp"
+                app:layout_constraintTop_toBottomOf="@+id/param_title" />
+
+            <TextView
+                android:id="@+id/tvParamTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/empty"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHomeTempTitle"
+                app:layout_constraintStart_toEndOf="@+id/tvHomeTempTitle"
+                app:layout_constraintTop_toTopOf="@+id/tvHomeTempTitle" />
+
+            <ImageView
+                android:id="@+id/ivAverageStatusHumidity"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_check"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHomeHumidityTitle"
+                app:layout_constraintStart_toStartOf="@+id/param_title"
+                app:layout_constraintTop_toTopOf="@+id/tvHomeHumidityTitle" />
+
+            <TextView
+                android:id="@+id/tvHomeHumidityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/humidity_title"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvHomeTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvHomeTempTitle" />
+
+            <TextView
+                android:id="@+id/tvParamHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/empty"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvHomeHumidityTitle"
+                app:layout_constraintStart_toStartOf="@+id/tvParamTemp"
+                app:layout_constraintTop_toTopOf="@+id/tvHomeHumidityTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/roundcorner"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toBottomOf="@+id/tvHomeTitle"
+        app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
+        app:layout_constraintTop_toTopOf="@+id/tvHomeTitle" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
+        app:layout_constraintStart_toStartOf="@+id/bConnectHome"
+        app:layout_constraintTop_toBottomOf="@+id/tvHomeTitle2">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/bRoom"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white_blue"
+                android:text="Спальня"
+                android:textColor="@color/white"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/bKitchen"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white_blue"
+                android:text="Кухня"
+                android:textColor="@color/white"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/bBath"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white_blue"
+                android:text="Ванная"
+                android:textColor="@color/white"
+                app:cornerRadius="10dp" />
+
+            <Button
+                android:id="@+id/bHallway"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white_blue"
+                android:text="Коридор"
+                android:textColor="@color/white"
+                app:cornerRadius="10dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRoom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/gray"
+        android:visibility="visible"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
+        app:layout_constraintStart_toStartOf="@+id/bConnectHome"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <TextView
+                android:id="@+id/tvRoomTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivRoomStatusTemp"
+                app:layout_constraintEnd_toEndOf="@+id/tvRoomTempTitle"
+                app:layout_constraintTop_toTopOf="@+id/ivRoomStatusTemp" />
+
+            <TextView
+                android:id="@+id/tvRoomHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivRoomStatusHumidity"
+                app:layout_constraintEnd_toEndOf="@+id/tvRoomTemp"
+                app:layout_constraintTop_toTopOf="@+id/ivRoomStatusHumidity" />
+
+            <TextView
+                android:id="@+id/tvRoomTempTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Температура:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvRoomTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvRoomTitle" />
+
+            <TextView
+                android:id="@+id/tvRoomHumidityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Влажность:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvRoomTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/ivRoomStatusTemp" />
+
+            <TextView
+                android:id="@+id/tvRoomTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Спальня"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ibRoomDevice"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_electrical_services_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivRoomStatusTemp"
+                app:layout_constraintEnd_toEndOf="@+id/tvRoomTitle"
+                app:layout_constraintTop_toTopOf="@+id/tvRoomTempTitle" />
+
+            <ImageButton
+                android:id="@+id/ibRoomBlind"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/ic_blind"
+                app:layout_constraintBottom_toBottomOf="@+id/ibRoomFun"
+                app:layout_constraintEnd_toStartOf="@+id/ibRoomFun"
+                app:layout_constraintTop_toTopOf="@+id/ibRoomFun" />
+
+            <ImageButton
+                android:id="@+id/ibRoomLamp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_lightbulb_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ibRoomDevice"
+                app:layout_constraintEnd_toStartOf="@+id/ibRoomDevice"
+                app:layout_constraintTop_toTopOf="@+id/ibRoomDevice" />
+
+            <ImageButton
+                android:id="@+id/ibRoomFun"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_wind_power_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivRoomStatusHumidity"
+                app:layout_constraintEnd_toEndOf="@+id/ibRoomDevice"
+                app:layout_constraintTop_toTopOf="@+id/tvRoomHumidityTitle" />
+
+            <ImageView
+                android:id="@+id/ivRoomStatusTemp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_snowflake"
+                app:layout_constraintStart_toStartOf="@+id/tvRoomTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvRoomTempTitle" />
+
+            <ImageView
+                android:id="@+id/ivRoomStatusHumidity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_water"
+                app:layout_constraintStart_toStartOf="@+id/tvRoomHumidityTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvRoomHumidityTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvKitchen"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/gray"
+        android:visibility="gone"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
+        app:layout_constraintStart_toStartOf="@+id/bConnectHome"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <TextView
+                android:id="@+id/tvKitchenTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivKitchenStatusTemp"
+                app:layout_constraintEnd_toEndOf="@+id/tvKitchenTempTitle"
+                app:layout_constraintTop_toTopOf="@+id/ivKitchenStatusTemp" />
+
+            <TextView
+                android:id="@+id/tvKitchenHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivKitchenStatusHumidity"
+                app:layout_constraintEnd_toEndOf="@+id/tvKitchenTemp"
+                app:layout_constraintTop_toTopOf="@+id/ivKitchenStatusHumidity" />
+
+            <TextView
+                android:id="@+id/tvKitchenTempTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Температура:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvKitchenTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKitchenTitle" />
+
+            <TextView
+                android:id="@+id/tvKitchenHumidityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Влажность:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvKitchenTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/ivKitchenStatusTemp" />
+
+            <TextView
+                android:id="@+id/tvKitchenTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Кухня"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ibKitchenLamp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_lightbulb_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ibKitchenDevice"
+                app:layout_constraintEnd_toStartOf="@+id/ibKitchenDevice"
+                app:layout_constraintTop_toTopOf="@+id/ibKitchenDevice" />
+
+            <ImageButton
+                android:id="@+id/ibKitchenDevice"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_electrical_services_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivKitchenStatusTemp"
+                app:layout_constraintEnd_toEndOf="@+id/tvKitchenTitle"
+                app:layout_constraintTop_toTopOf="@+id/tvKitchenTempTitle" />
+
+            <ImageButton
+                android:id="@+id/ibKitchenBlind"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/ic_blind"
+                app:layout_constraintBottom_toBottomOf="@+id/ibKitchenFun"
+                app:layout_constraintEnd_toStartOf="@+id/ibKitchenFun"
+                app:layout_constraintTop_toTopOf="@+id/ibKitchenFun" />
+
+            <ImageButton
+                android:id="@+id/ibKitchenFun"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_wind_power_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivKitchenStatusHumidity"
+                app:layout_constraintEnd_toEndOf="@+id/ibKitchenDevice"
+                app:layout_constraintTop_toTopOf="@+id/tvKitchenHumidityTitle" />
+
+            <ImageView
+                android:id="@+id/ivKitchenStatusTemp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_snowflake"
+                app:layout_constraintStart_toStartOf="@+id/tvKitchenTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKitchenTempTitle" />
+
+            <ImageView
+                android:id="@+id/ivKitchenStatusHumidity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_water"
+                app:layout_constraintStart_toStartOf="@+id/tvKitchenTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvKitchenHumidityTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvBath"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/gray"
+        android:visibility="gone"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
+        app:layout_constraintStart_toStartOf="@+id/bConnectHome"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <TextView
+                android:id="@+id/tvBathTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBathStatusTemp"
+                app:layout_constraintEnd_toEndOf="@+id/tvBathTempTitle"
+                app:layout_constraintTop_toTopOf="@+id/ivBathStatusTemp" />
+
+            <TextView
+                android:id="@+id/tvBathHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBathStatusHumidity"
+                app:layout_constraintEnd_toEndOf="@+id/tvBathTemp"
+                app:layout_constraintTop_toTopOf="@+id/ivBathStatusHumidity" />
+
+            <TextView
+                android:id="@+id/tvBathTempTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Температура:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvBathTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvBathTitle" />
+
+            <TextView
+                android:id="@+id/tvBathHumidityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Влажность:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvBathTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/ivBathStatusTemp" />
+
+            <TextView
+                android:id="@+id/tvBathTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Ванная"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ibBathLamp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_lightbulb_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ibBathDevice"
+                app:layout_constraintEnd_toStartOf="@+id/ibBathDevice"
+                app:layout_constraintTop_toTopOf="@+id/ibBathDevice" />
+
+            <ImageButton
+                android:id="@+id/ibBathDevice"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_electrical_services_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBathStatusTemp"
+                app:layout_constraintEnd_toEndOf="@+id/tvBathTitle"
+                app:layout_constraintTop_toTopOf="@+id/tvBathTempTitle" />
+
+            <ImageButton
+                android:id="@+id/ibBathBlind"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/ic_blind"
+                app:layout_constraintBottom_toBottomOf="@+id/ibBathFun"
+                app:layout_constraintEnd_toStartOf="@+id/ibBathFun"
+                app:layout_constraintTop_toTopOf="@+id/ibBathFun" />
+
+            <ImageButton
+                android:id="@+id/ibBathFun"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_wind_power_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivBathStatusHumidity"
+                app:layout_constraintEnd_toEndOf="@+id/ibBathDevice"
+                app:layout_constraintTop_toTopOf="@+id/tvBathHumidityTitle" />
+
+            <ImageView
+                android:id="@+id/ivBathStatusTemp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_snowflake"
+                app:layout_constraintStart_toStartOf="@+id/tvBathTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvBathTempTitle" />
+
+            <ImageView
+                android:id="@+id/ivBathStatusHumidity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_water"
+                app:layout_constraintStart_toStartOf="@+id/tvBathTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvBathHumidityTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvHallway"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/gray"
+        android:visibility="gone"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
+        app:layout_constraintStart_toStartOf="@+id/bConnectHome"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <TextView
+                android:id="@+id/tvHallwayTemp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/temperature"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivHallwayStatusTemp"
+                app:layout_constraintEnd_toEndOf="@+id/tvHallwayTempTitle"
+                app:layout_constraintTop_toTopOf="@+id/ivHallwayStatusTemp" />
+
+            <TextView
+                android:id="@+id/tvHallwayHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/humidity"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivHallwayStatusHumidity"
+                app:layout_constraintEnd_toEndOf="@+id/tvHallwayTemp"
+                app:layout_constraintTop_toTopOf="@+id/ivHallwayStatusHumidity" />
+
+            <TextView
+                android:id="@+id/tvHallwayTempTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Температура:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvHallwayTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvHallwayTitle" />
+
+            <TextView
+                android:id="@+id/tvHallwayHumidityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Влажность:"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/tvHallwayTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/ivHallwayStatusTemp" />
+
+            <TextView
+                android:id="@+id/tvHallwayTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:text="Коридор"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ibHallwayLamp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_lightbulb_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ibHallwayDevice"
+                app:layout_constraintEnd_toStartOf="@+id/ibHallwayDevice"
+                app:layout_constraintTop_toTopOf="@+id/ibHallwayDevice" />
+
+            <ImageButton
+                android:id="@+id/ibHallwayDevice"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_electrical_services_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivHallwayStatusTemp"
+                app:layout_constraintEnd_toEndOf="@+id/tvHallwayTitle"
+                app:layout_constraintTop_toTopOf="@+id/tvHallwayTempTitle" />
+
+            <ImageButton
+                android:id="@+id/ibHallwayBlind"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/ic_blind"
+                app:layout_constraintBottom_toBottomOf="@+id/ibHallwayFun"
+                app:layout_constraintEnd_toStartOf="@+id/ibHallwayFun"
+                app:layout_constraintTop_toTopOf="@+id/ibHallwayFun" />
+
+            <ImageButton
+                android:id="@+id/ibHallwayFun"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white_gray"
+                android:src="@drawable/baseline_wind_power_24"
+                app:layout_constraintBottom_toBottomOf="@+id/ivHallwayStatusHumidity"
+                app:layout_constraintEnd_toEndOf="@+id/ibHallwayDevice"
+                app:layout_constraintTop_toTopOf="@+id/tvHallwayHumidityTitle" />
+
+            <ImageView
+                android:id="@+id/ivHallwayStatusTemp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_snowflake"
+                app:layout_constraintStart_toStartOf="@+id/tvHallwayTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvHallwayTempTitle" />
+
+            <ImageView
+                android:id="@+id/ivHallwayStatusHumidity"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/ic_water"
+                app:layout_constraintStart_toStartOf="@+id/tvHallwayTempTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvHallwayHumidityTitle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Switch"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/lock"
+        app:layout_constraintStart_toStartOf="@+id/lock" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
