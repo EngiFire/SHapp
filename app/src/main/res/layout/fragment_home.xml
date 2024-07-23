@@ -246,7 +246,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/gray"
-        android:visibility="visible"
+        android:visibility="gone"
         app:cardCornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="@+id/bConnectHome"
         app:layout_constraintStart_toStartOf="@+id/bConnectHome"
